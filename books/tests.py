@@ -34,7 +34,7 @@ class BookListViewTests(TestCase):
 
     def test_filter_books_by_media_type(self):
         # Test filtering books by MIME type
-        url = reverse("book-list")
+        url = reverse("all_books")
         client = APIClient()
         response = client.get(
             url, {"mime_type": "application/pdf"}
@@ -49,7 +49,7 @@ class BookListViewTests(TestCase):
     def test_get_books(self):
         # Test retrieving list of books
         url = reverse(
-            "book-list"
+            "all_books"
         )
         client = APIClient()
         response = client.get(url)
@@ -62,7 +62,7 @@ class BookListViewTests(TestCase):
     def test_filter_books_by_author(self):
         # Test filtering books by author name
         url = reverse(
-            "book-list"
+            "all_books"
         )
         client = APIClient()
         response = client.get(
@@ -76,7 +76,7 @@ class BookListViewTests(TestCase):
 
     def test_filter_books_by_title(self):
         # Test filtering books by title
-        url = reverse("book-list")
+        url = reverse("all_books")
         client = APIClient()
         response = client.get(url, {"title": "Book 1"})
 
@@ -86,7 +86,7 @@ class BookListViewTests(TestCase):
 
     def test_filter_books_by_language(self):
         # Test filtering books by language
-        url = reverse("book-list")
+        url = reverse("all_books")
         client = APIClient()
         response = client.get(
             url, {"language": "en"}
@@ -99,7 +99,7 @@ class BookListViewTests(TestCase):
 
     def test_filter_books_by_topic(self):
         # Test filtering books by topic (subject or bookshelf)
-        url = reverse("book-list")
+        url = reverse("all_books")
         client = APIClient()
         response = client.get(url, {"topic": "Topic"})  # Provide a topic name
 
@@ -110,7 +110,7 @@ class BookListViewTests(TestCase):
 
     def test_filter_books_by_gutenberg_id(self):
         # Test filtering books by Gutenberg ID
-        url = reverse("book-list")
+        url = reverse("all_books")
         client = APIClient()
 
         # Filter by the gutenberg_id of book1
